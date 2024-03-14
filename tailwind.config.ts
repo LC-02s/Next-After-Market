@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
@@ -8,11 +9,47 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        'sans': ['"Pretendard"', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'gray': {
+          100: 'var(--grsc-100)',
+          200: 'var(--grsc-200)',
+          300: 'var(--grsc-300)',
+          400: 'var(--grsc-400)',
+          500: 'var(--grsc-500)',
+          600: 'var(--grsc-600)',
+          700: 'var(--grsc-700)',
+          800: 'var(--grsc-800)',
+          900: 'var(--grsc-900)'
+        },
+        'red': {
+          100: 'var(--smtc-warn-light)',
+          200: 'var(--smtc-warn-sub)',
+          500: 'var(--smtc-warn)'
+        },
+        'yellow': {
+          100: 'var(--smtc-caution-light)',
+          200: 'var(--smtc-caution-sub)',
+          500: 'var(--smtc-caution)'
+        },
+        'green': {
+          100: 'var(--smtc-success-light)',
+          200: 'var(--smtc-success-sub)',
+          500: 'var(--smtc-success)'
+        },
+        'blue': {
+          100: 'var(--smtc-info-light)',
+          200: 'var(--smtc-info-sub)',
+          500: 'var(--smtc-info)'
+        },
+        'purple': {
+          100: 'var(--brnd-prpl-light)',
+          200: 'var(--brnd-prpl-sub)',
+          500: 'var(--brnd-prpl)'
+        },
+      }
     },
   },
   plugins: [],
