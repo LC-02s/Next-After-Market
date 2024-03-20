@@ -2,9 +2,8 @@ import NextAuth, { NextAuthOptions } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
-import { PrismaClient } from "@prisma/client"
-
-const prisma = new PrismaClient()
+import prisma from "@helpers/prismadb"
+import bcrypt from 'bcryptjs'
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -16,16 +15,34 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
+        email: { label: 'Email', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, req) {
-        const user = { id: '1', name: 'J Smith', email: 'jsmith@example.com', role: 'user' }
-        return user ? user : null;
+        console.log('credentials: ', credentials);
+        console.log('req: ', req);
+        if (!credentials?.email || credentials.password === null) {
+          throw new Error('Invalid credentials');
+        }
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email }
+        });
+        if (!user || user.hashedPw === null) {
+          throw new Error('Invalid credentials');
+        }
+        const isCorrectPw = await bcrypt.compare(credentials.password, user.hashedPw);
+        if (!isCorrectPw) {
+          throw new Error('Invalid credentials');
+        }
+
+        return user;
       }
     })
   ],
   session: { strategy: 'jwt' },
+  pages: {
+    signIn: '/auth/login'
+  },
   jwt: { 
     secret: process.env.JWT_SECRET, 
     maxAge: 30 * 24 * 60 * 60 // 30day

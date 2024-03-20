@@ -17,7 +17,7 @@ export default function LoginPage() {
   const handleFormSubmit: SubmitHandler<FieldValues> = async (body) => {
     setIsLoading(true);
     try {
-      const response = await signIn('credentials', body);
+      const response = await signIn('credentials', { ...body, callbackUrl: '/' });
       console.log('res: ', response);
     } 
     catch(err) { console.warn(err); } 

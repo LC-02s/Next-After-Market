@@ -1,20 +1,23 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+'use client'
+import { User } from "@prisma/client";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 
-export default function Nav() {
-  
-  const { data: session, status } = useSession();
-  console.log(session, status);
+interface NavProps {
+  currentUser?: User | null
+}
 
+export default function Nav({ currentUser }: NavProps) {
+  
   return (
     <ul className="flex justify-end items-center gap-2">
       <li><Link href='/admin'>admin</Link></li>
       <li><Link href='/user'>user</Link></li>
       {
-        status === 'authenticated'
+        currentUser
         ? <li><button type="button" onClick={() => signOut()}>logout</button></li>
         : <>
-            <li><button type="button" onClick={() => signIn()}>login</button></li>
+            <li><Link href='/auth/login'>login</Link></li>
             <li><Link href='/auth/register'>register</Link></li>
           </>
       }
