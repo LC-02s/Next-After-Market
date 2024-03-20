@@ -2,63 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --grsc-000: #FFFFFF;
-  --grsc-100: #EEF1F3;
-  --grsc-200: #D8DFE3;
-  --grsc-300: #A9B5BC;
-  --grsc-400: #94A1A8;
-  --grsc-500: #727E84;
-  --grsc-600: #54595B;
-  --grsc-700: #323539;
-  --grsc-800: #232629;
-  --grsc-900: #131517;
-  --smtc-warn: #E14B4D;
-  --smtc-warn-sub: #FCB8B9;
-  --smtc-warn-light: #FFE8E9;
-  --smtc-caution: #FFAB01;
-  --smtc-caution-sub: #FFE4AF;
-  --smtc-caution-light: #FFF3DB;
-  --smtc-success: #28C28B;
-  --smtc-success-sub: #AAEAD3;
-  --smtc-success-light: #E1F9F0;
-  --smtc-info: #3B84D8;
-  --smtc-info-sub: #C4DEFC;
-  --smtc-info-light: #E7F2FD;
-  --brnd-prpl: #7882E3;
-  --brnd-prpl-sub: #BFC5FA;
-  --brnd-prpl-light: #E6E9FF;
-}
+@layer base {
+  body {
+    --grsc-000: #FFFFFF;
+    --grsc-100: #EEF1F3;
+    --grsc-200: #D8DFE3;
+    --grsc-300: #A9B5BC;
+    --grsc-400: #94A1A8;
+    --grsc-500: #727E84;
+    --grsc-600: #54595B;
+    --grsc-700: #323539;
+    --grsc-800: #232629;
+    --grsc-900: #131517;
+    --smtc-warn: #E14B4D;
+    --smtc-warn-sub: #FCB8B9;
+    --smtc-warn-light: #FFE8E9;
+    --smtc-caution: #FFAB01;
+    --smtc-caution-sub: #FFE4AF;
+    --smtc-caution-light: #FFF3DB;
+    --smtc-success: #28C28B;
+    --smtc-success-sub: #AAEAD3;
+    --smtc-success-light: #E1F9F0;
+    --smtc-info: #3B84D8;
+    --smtc-info-sub: #C4DEFC;
+    --smtc-info-light: #E7F2FD;
+    --brnd-prpl: #7882E3;
+    --brnd-prpl-sub: #BFC5FA;
+    --brnd-prpl-light: #E6E9FF;
 
-body.darkTheme {
-  --grsc-000: #232629;
-  --grsc-100: #323539;
-  --grsc-200: #54595B;
-  --grsc-300: #54595B;
-  --grsc-400: #727E84;
-  --grsc-500: #94A1A8;
-  --grsc-600: #A9B5BC;
-  --grsc-700: #D8DFE3;
-  --grsc-800: #EEF1F3;
-  --grsc-900: #EEF1F3;
-  --smtc-warn: #DB4143;
-  --smtc-warn-sub: #742B2C;
-  --smtc-warn-light: #3D2122;
-  --smtc-caution: #EBA00A;
-  --smtc-caution-sub: #8C713B;
-  --smtc-caution-light: #4A402D;
-  --smtc-success: #28B381;
-  --smtc-success-sub: #3A7862;
-  --smtc-success-light: #2A473C;
-  --smtc-info: #307ACF;
-  --smtc-info-sub: #36567A;
-  --smtc-info-light: #293748;
-  --brnd-prpl: #6874DE;
-  --brnd-prpl-sub: #5A6096;
-  --brnd-prpl-light: #3D405B;
-}
-
-body {
-  background-color: var(--grsc-000);
-  color: var(--grsc-700);
+    @apply bg-[var(--grsc-000)] text-gray-700
+  }
+  body.darkTheme {
+    --grsc-000: #232629;
+    --grsc-100: #323539;
+    --grsc-200: #54595B;
+    --grsc-300: #54595B;
+    --grsc-400: #727E84;
+    --grsc-500: #94A1A8;
+    --grsc-600: #A9B5BC;
+    --grsc-700: #D8DFE3;
+    --grsc-800: #EEF1F3;
+    --grsc-900: #EEF1F3;
+    --smtc-warn: #DB4143;
+    --smtc-warn-sub: #742B2C;
+    --smtc-warn-light: #3D2122;
+    --smtc-caution: #EBA00A;
+    --smtc-caution-sub: #8C713B;
+    --smtc-caution-light: #4A402D;
+    --smtc-success: #28B381;
+    --smtc-success-sub: #3A7862;
+    --smtc-success-light: #2A473C;
+    --smtc-info: #307ACF;
+    --smtc-info-sub: #36567A;
+    --smtc-info-light: #293748;
+    --brnd-prpl: #6874DE;
+    --brnd-prpl-sub: #5A6096;
+    --brnd-prpl-light: #3D405B;
+  }
 }

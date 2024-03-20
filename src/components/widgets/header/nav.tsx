@@ -13,7 +13,10 @@ export default function Nav() {
       {
         status === 'authenticated'
         ? <li><button type="button" onClick={() => signOut()}>logout</button></li>
-        : <li><button type="button" onClick={() => signIn()}>login</button></li>
+        : <>
+            <li><button type="button" onClick={() => signIn()}>login</button></li>
+            <li><Link href='/auth/register'>register</Link></li>
+          </>
       }
     </ul>
   )
