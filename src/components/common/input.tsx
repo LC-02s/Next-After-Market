@@ -29,7 +29,7 @@ export default function Input(
           ${errors[id] ? 'text-red-500' : 'text-gray-400'}
         `}
       >{ label }</label>
-      { formatPrice && <span>₩</span> }
+      { formatPrice && <span className="absolute top-0 bottom-0 left-2 h-fit m-auto">₩</span> }
       <input 
         id={id}
         type={type ?? 'text'} 

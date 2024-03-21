@@ -1,6 +1,6 @@
 'use client'
 import { User } from "@prisma/client";
-import { signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 
 interface NavProps {
@@ -17,6 +17,7 @@ export default function Nav({ currentUser }: NavProps) {
         currentUser
         ? <li><button type="button" onClick={() => signOut()}>logout</button></li>
         : <>
+            {/* <li><button type="button" onClick={() => signIn()}>login</button></li> */}
             <li><Link href='/auth/login'>login</Link></li>
             <li><Link href='/auth/register'>register</Link></li>
           </>

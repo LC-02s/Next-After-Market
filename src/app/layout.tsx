@@ -19,9 +19,11 @@ export default async function RootLayout({
 
   return (
     <html lang="ko">
-      <body className={`pt-16 ${true && 'darkTheme'}`}>
+      <body className={`${true && 'darkTheme'}`}>
           <Header currentUser={currentUser} />
-          { children }
+          <section className="block w-full max-w-3xl h-auto m-auto py-20 px-4">
+            { children }
+          </section>
           <Footer />
       </body>
     </html>
