@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@components/widgets/header"
-import Footer from "@components/widgets/footer";
+import Header from "@/components/widgets/header"
+import Footer from "@/components/widgets/footer";
 import getCurrentUser from "./actions/getCurrentUser";
 
 export const metadata: Metadata = {

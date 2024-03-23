@@ -1,6 +1,6 @@
 'use client'
-import Button from "@components/common/button";
-import Input from "@components/common/input";
+import Button from "@/components/common/button";
+import Input from "@/components/common/input";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 

@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from "react";
-import Input from "@components/common/input";
+import Input from "@/components/common/input";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import Button from "@components/common/button";
+import Button from "@/components/common/button";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 
