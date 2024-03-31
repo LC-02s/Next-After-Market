@@ -10,41 +10,33 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Pretendard"', ...defaultTheme.fontFamily.sans],
+        sans: ['"Pretendard"', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'gray': {
-          100: 'var(--grsc-100)',
-          200: 'var(--grsc-200)',
-          300: 'var(--grsc-300)',
-          400: 'var(--grsc-400)',
-          500: 'var(--grsc-500)',
-          600: 'var(--grsc-600)',
-          700: 'var(--grsc-700)',
-          800: 'var(--grsc-800)',
-          900: 'var(--grsc-900)'
-        },
-        'red': {
+        gray: Array
+          .from({ length: 10 }, (_, i) => `var(--grsc-${i}00)`)
+          .reduce((gray: { [key: string]: string }, v, i) => ((gray[`${i}00`] = v), gray), {}),
+        red: {
           100: 'var(--smtc-warn-light)',
           200: 'var(--smtc-warn-sub)',
           500: 'var(--smtc-warn)'
         },
-        'yellow': {
+        yellow: {
           100: 'var(--smtc-caution-light)',
           200: 'var(--smtc-caution-sub)',
           500: 'var(--smtc-caution)'
         },
-        'green': {
+        green: {
           100: 'var(--smtc-success-light)',
           200: 'var(--smtc-success-sub)',
           500: 'var(--smtc-success)'
         },
-        'blue': {
+        blue: {
           100: 'var(--smtc-info-light)',
           200: 'var(--smtc-info-sub)',
           500: 'var(--smtc-info)'
         },
-        'purple': {
+        purple: {
           100: 'var(--brnd-prpl-light)',
           200: 'var(--brnd-prpl-sub)',
           500: 'var(--brnd-prpl)'

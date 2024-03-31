@@ -37,7 +37,7 @@ export default function Input(
         {...register(id, { required })}
         placeholder=""
         className={`
-          w-full p-4 pt-6 font-light bg-[var(--grsc-000)] rounded-lg border outline-none transition
+          w-full p-4 pt-6 font-light bg-gray-000 rounded-lg border outline-none transition
           disabled:cursor-not-allowed disabled:bg-gray-100
           ${formatPrice ? 'pl-8' : 'pl-4'}
           ${errors[id] ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-purple-500'}
